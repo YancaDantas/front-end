@@ -1,33 +1,29 @@
-import Home from './paginas/home/Home';
-import './App.css';
-import React, { useState } from 'react';
-
-
-/*
-//Hook useState
-function App() {
-  const [valor, setValor] = useState(0);
-
-  function handleClick() {
-    setValor(valor + 1);
-  }
-  return (
-    //  <Home  title="Blog Pessoal"
-    //         description="Seu espaço para Criatividade."/>
-    <div>
-      <p>O valor é: {valor}</p>
-      <button onClick={handleClick}>Adicionar 1</button>
-    </div>
-  );
-}*/
-
-//Hook useEffect
+import React from "react";
+import Home from "./paginas/home/Home";
+import Postagens from "./paginas/postagens/Postagens";
+import Feed from "./paginas/feed/Feed";
+import Sobre from "./paginas/sobre/Sobre";
+import Navbar from "./assets/components/navbar/Navbar";
+import Footer from "./assets/components/footer/Footer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
- 
   return (
     <>
-      <Home/>
+      <BrowserRouter>
+      <Navbar />
+      <div className='min-h-[80vh]'>
+        <Routes>
+          
+          <Route path="/" element={<Home />} />
+          <Route path="/Minhas Postagens" element={<Postagens />} />
+          <Route path="/Feed" element={<Feed />} />
+          <Route path="/Sobre" element={<Sobre />} />
+          
+        </Routes>
+        </ div>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 }
